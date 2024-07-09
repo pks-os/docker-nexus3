@@ -218,6 +218,7 @@ node('ubuntu-zion') {
           if (params.java_version == OPENJDK8) {
             OsTools.runSafe(this, "docker tag ${imageId} ${organization}/${dockerHubRepository}:${version}-ubi")
             OsTools.runSafe(this, "docker tag ${imageId} ${organization}/${dockerHubRepository}:latest")
+            OsTools.runSafe(this, "docker tag ${organization}/${dockerHubRepository}:${version}-ubi ${organization}/${dockerHubRepository}:${version}")
           }
 
           OsTools.runSafe(this, """
